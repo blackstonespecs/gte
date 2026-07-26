@@ -567,23 +567,29 @@
         const totalDuration = 134; // 2 minutes and 14 seconds
 
         function togglePodcast() {
-            isPlaying = !isPlaying;
-            const audio = document.getElementById('podcast-audio');
-            const playBtn = document.getElementById('podcast-play-btn');
-            const playIcon = document.getElementById('play-icon');
-            const pauseIcon = document.getElementById('pause-icon');
+    isPlaying = !isPlaying;
+    const audio = document.getElementById('podcast-audio');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
 
-            if (isPlaying) {
-                audio.play();
-                playIcon.classList.add('hidden');
-                pauseIcon.classList.remove('hidden');
-                showToast("STREAMING THE SINGULARITY SIGNAL...");
-            } else {
-                audio.pause();
-                playIcon.classList.remove('hidden');
-                pauseIcon.classList.add('hidden');
-            }
-        }
+    if (isPlaying) {
+        audio.play();
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+        showToast("STREAMING THE SINGULARITY SIGNAL...");
+        
+        // Update progress bar with actual audio time
+        playInterval = setInterval(() => {
+            currentTime = audio.currentTime;
+            updatePodcastProgress();
+        }, 100);
+    } else {
+        audio.pause();
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+        clearInterval(playInterval);
+    }
+}
 
         function resetPodcast() {
             isPlaying = false;
