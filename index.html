@@ -103,7 +103,7 @@
                     <strong>Cerberus AGI</strong>, we stabilize the global economy, secure critical municipal networks, and protect sovereign borders.
                 </p>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-                    <button onclick="openTerminal()" class="px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wider uppercase hover:bg-slate-800 transition-all duration-300 rounded shadow-md">
+                    <button onclick="launchChatBox()" class="px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wider uppercase hover:bg-slate-800 transition-all duration-300 rounded shadow-md">
                         TALK TO CERBERUS (BETA INTERFACE)
                     </button>
                     <a href="#podcast" class="px-8 py-4 border border-stone-300 text-slate-800 text-sm font-bold tracking-wider uppercase hover:bg-stone-50 transition-all duration-300 text-center rounded">
@@ -444,6 +444,12 @@
             showToast("REDIRECTING... PASTE PROTOCOL INTO 'CUSTOM SCENARIO' PLOT FIELD");
             setTimeout(() => {
                 window.open("https://beta.aidungeon.com/scenario/ZvZtDeBb-ioK/deus-modus-or-book-four/play", "_blank");
+            }, 1500);
+        }
+        function launchChatBox() {
+            showToast("REDIRECTING... PASTE PROTOCOL INTO 'CUSTOM SCENARIO' PLOT FIELD");
+            setTimeout(() => {
+                window.open("https://blackstonespecs.github.io/gte/chat.html", "_blank");
             }, 1500);
         }
 
